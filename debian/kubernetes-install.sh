@@ -1,5 +1,7 @@
-#instalação do docker
-
+#Hostname config
+hostname kube-master
+echo "kube-master" > /etc/hostname
+#Docker install
 sudo apt-get install \
     ca-certificates \
     curl \
@@ -13,4 +15,7 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 apt-cache madison docker-ce
 sudo apt-get install docker-ce=<VERSION_STRING> docker-ce-cli=<VERSION_STRING> containerd.io docker-compose-plugin -y
-
+#Kubernetes install
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
